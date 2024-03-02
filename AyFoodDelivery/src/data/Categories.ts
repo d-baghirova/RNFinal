@@ -304,7 +304,7 @@ export const CategoriesLst = [
     title: "Breads",
     img: require("../images/categories/bread.jpeg"),
     quantity: 10,
-    products: [
+    products: [ 
       {
         title: "Baguette",
         price: 2.0,

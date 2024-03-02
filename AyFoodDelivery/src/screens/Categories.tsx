@@ -7,49 +7,19 @@ import HeaderTitle from "../components/HeaderTitle";
 import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import { CategoriesLst } from "../data/Categories";
+import { useProducts } from "../context/ProductsContext";
 
 type Props = {
   navigation: StackNavigationProp<RootStackParams, "Login">;
 }; 
-const categoriesList = [
-  {
-    img: require("../images/categories/bread.jpeg"),
-    title: "Bread",
-    quantity: 26,
-  },
-  {
-    img: require("../images/categories/drinks.jpeg"),
-    title: "Drinks",
-    quantity: 5,
-  },
-  {
-    img: require("../images/categories/fruits.jpeg"),
-    title: "Fruits",
-    quantity: 56,
-  },
-  {
-    img: require("../images/categories/pasta.jpeg"),
-    title: "Pasta",
-    quantity: 78,
-  },
-  {
-    img: require("../images/categories/sweets.jpeg"),
-    title: "Sweets",
-    quantity: 50,
-  },
-  {
-    img: require("../images/categories/vegetables.jpeg"),
-    title: "Vegetables",
-    quantity: 30,
-  },
-];
 
 const windowWidth = Dimensions.get("window").width;
-
+ 
 export default function Categories({ navigation }: Props) {
-  console.log('Categories' + CategoriesLst)
+  const categoriesLst = useProducts()
+  const categoriesData = categoriesLst.categories
   function drawCards() {
-    return CategoriesLst.map((card, i) => (
+    return categoriesData.map((card, i) => (
       <Card
         title={card.title}
         img={card.img}

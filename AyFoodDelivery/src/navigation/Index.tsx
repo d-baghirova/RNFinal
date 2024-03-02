@@ -7,6 +7,7 @@ import Home from "../screens/Home";
 import Categories from "../screens/Categories";
 import Products from "../screens/Products";
 import Product from "../screens/Product";
+import ProductsProvider from "../context/ProductsContext";
 
 export type RootStackParams = {
   Home: undefined;
@@ -21,56 +22,58 @@ const RootStack = createNativeStackNavigator<RootStackParams>();
 
 const RootNavigation = () => {
   return (
-    <RootStack.Navigator>
-      <RootStack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="Home"
-        component={Home}
-      />
-      <RootStack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="Login"
-        component={Login}
-      />
-      <RootStack.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="SignUp"
-        component={SignUp}
-      />
-      <RootStack.Screen
-        options={{
-          headerShown: true,
-          headerTransparent: true,
-          headerTitle: "",
-        }}
-        name="Categories"
-        component={Categories}
-      />
-      <RootStack.Screen
-        options={{
-          headerShown: true,
-          headerTransparent: true,
-          headerTitle: "",
-        }}
-        name="Products"
-        component={Products}
-      />
-       <RootStack.Screen
-        options={{
-          headerShown: true,
-          headerTransparent: true,
-          headerTitle: "",
-        }}
-        name="Product"
-        component={Product}
-      />
-    </RootStack.Navigator>
+    <ProductsProvider>
+      <RootStack.Navigator>
+        <RootStack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Home"
+          component={Home}
+        />
+        <RootStack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Login"
+          component={Login}
+        />
+        <RootStack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="SignUp"
+          component={SignUp}
+        />
+        <RootStack.Screen
+          options={{
+            headerShown: true,
+            headerTransparent: true,
+            headerTitle: "",
+          }}
+          name="Categories"
+          component={Categories}
+        />
+        <RootStack.Screen
+          options={{
+            headerShown: true,
+            headerTransparent: true,
+            headerTitle: "",
+          }}
+          name="Products"
+          component={Products}
+        />
+         <RootStack.Screen
+          options={{
+            headerShown: true,
+            headerTransparent: true,
+            headerTitle: "",
+          }}
+          name="Product"
+          component={Product}
+        />
+      </RootStack.Navigator>
+    </ProductsProvider>
   );
 };
 
