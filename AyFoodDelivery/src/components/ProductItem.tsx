@@ -35,7 +35,7 @@ const ProductItem = ({
       title: title,
       img: img,
       price: price,
-      piece: piece
+      piece: piece 
     })}>
       <View style={{ flexDirection: "row", width: windowWidth * 0.5 }}>
         <ImageBackground

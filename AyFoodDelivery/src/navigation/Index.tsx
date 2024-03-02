@@ -13,7 +13,7 @@ export type RootStackParams = {
   Login: undefined;
   SignUp: undefined;
   Categories: undefined;
-  Products: undefined;
+  Products: any;
   Product: any;
 };
 

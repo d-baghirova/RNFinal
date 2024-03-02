@@ -9,6 +9,7 @@ import ProductItem from "../components/ProductItem";
 import Product from "../screens/Product";
 
 type Props = {
+  route: any,
   navigation: StackNavigationProp<RootStackParams, "Login">;
 };
 const vegetablesList = [
@@ -62,14 +63,19 @@ const vegetablesList = [
   },
 ];
 
+
+
 const windowWidth = Dimensions.get("window").width;
 
-export default function Products({ navigation }: Props) {
+export default function Products({ navigation, route }: Props) {
+  const {params} = route;
+  const productsLst = params.products;
+  console.log(params)
   function drawProducts() {
-    return vegetablesList.map((product, i) => (
+    return productsLst.map((product : any, i : number) => (
       <ProductItem
         title={product.title}
-        img={product.img}
+        img={product.img} 
         price={product.price}
         piece={product.piece}
         key={i}

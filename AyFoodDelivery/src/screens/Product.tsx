@@ -9,7 +9,7 @@ import HeaderTitle from "../components/HeaderTitle";
 import SearchBar from "../components/SearchBar";
 
 type ProductParams = {
-  img: ImageSourcePropType;
+  img: ImageSourcePropType; 
   title: string;
   price: number;
   piece: any;
@@ -23,7 +23,6 @@ const windowWidth = Dimensions.get("window").width;
 
 export default function Product({ route }: Props) {
   const { params } = route;
-  console.log(route);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.whiteContainer}>

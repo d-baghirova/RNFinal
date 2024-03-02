@@ -49,11 +49,12 @@ const windowWidth = Dimensions.get("window").width;
 export default function Categories({ navigation }: Props) {
   console.log('Categories' + CategoriesLst)
   function drawCards() {
-    return categoriesList.map((card, i) => (
+    return CategoriesLst.map((card, i) => (
       <Card
         title={card.title}
         img={card.img}
         quantity={card.quantity}
+        products={card.products}
         key={i}
         navigation={navigation}
       />
