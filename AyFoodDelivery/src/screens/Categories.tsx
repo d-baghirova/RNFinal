@@ -7,7 +7,7 @@ import HeaderTitle from "../components/HeaderTitle";
 import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import { CategoriesLst } from "../data/Categories";
-import { useProducts } from "../context/ProductsContext";
+import { useCategories } from "../context/CategoriesContext";
 
 type Props = {
   navigation: StackNavigationProp<RootStackParams, "Login">;
@@ -16,7 +16,7 @@ type Props = {
 const windowWidth = Dimensions.get("window").width;
  
 export default function Categories({ navigation }: Props) {
-  const categoriesLst = useProducts()
+  const categoriesLst = useCategories()
   const categoriesData = categoriesLst.categories
   function drawCards() {
     return categoriesData.map((card, i) => (

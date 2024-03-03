@@ -10,6 +10,8 @@ import {
 import { ImageSourcePropType } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParams } from "../navigation/Index";
+import { StackNavigation } from "../navigation/Index";
+import { useNavigation } from "@react-navigation/native";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -20,10 +22,12 @@ type Props = {
   products: any,
   navigation: StackNavigationProp<RootStackParams, "Login">;
 };
-
+ 
 const Card = ({ img, title, quantity, products, navigation }: Props) => {
+  const { navigate } = useNavigation<StackNavigation>();
+  
   return ( 
-    <Pressable onPress={() => navigation.navigate("Products", {products: products})}>
+    <Pressable onPress={() => navigate("Products", {products: products})}>
       <ImageBackground
         source={img}
         borderTopLeftRadius={15}

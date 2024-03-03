@@ -13,8 +13,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import DIcon from "../icons/DIcon";
 import Btn from "../components/Btn";
 import BoxIcon from "../icons/BoxIcon";
+import { StackNavigation } from "../navigation/Index";
+import { useNavigation } from "@react-navigation/native";
 
-type Props = {
+type Props = { 
   navigation: StackNavigationProp<RootStackParams, "Login">;
 };
 
@@ -22,6 +24,7 @@ const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 
 export default function Home({ navigation }: Props) {
+  const { navigate } = useNavigation<StackNavigation>();
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
@@ -42,7 +45,7 @@ export default function Home({ navigation }: Props) {
           </Text>
           <Btn
             btnText="Order now"
-            onPress={() => navigation.navigate("Login")}
+            onPress={() => navigate("Login")}
           />
         </View>
         <StatusBar style="auto" />

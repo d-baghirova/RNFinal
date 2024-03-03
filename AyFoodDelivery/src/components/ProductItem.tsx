@@ -12,6 +12,8 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParams } from "../navigation/Index";
 import FavoriteBtn from "./FavoriteBtn";
 import BasketBtn from "./BasketBtn";
+import { StackNavigation } from "../navigation/Index";
+import { useNavigation } from "@react-navigation/native";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -30,8 +32,9 @@ const ProductItem = ({
   piece,
   navigation,
 }: Props) => {
+  const { navigate } = useNavigation<StackNavigation>();
   return (
-    <Pressable onPress={() => navigation.navigate('Product', {
+    <Pressable onPress={() => navigate('Product', {
       title: title,
       img: img,
       price: price,

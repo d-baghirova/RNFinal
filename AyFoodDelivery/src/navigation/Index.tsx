@@ -7,7 +7,8 @@ import Home from "../screens/Home";
 import Categories from "../screens/Categories";
 import Products from "../screens/Products";
 import Product from "../screens/Product";
-import ProductsProvider from "../context/ProductsContext";
+import CategoriesProvider from "../context/CategoriesContext";
+import { NavigationProp, ParamListBase } from "@react-navigation/native";
 
 export type RootStackParams = {
   Home: undefined;
@@ -18,11 +19,14 @@ export type RootStackParams = {
   Product: any;
 };
 
+
+
 const RootStack = createNativeStackNavigator<RootStackParams>();
+export type StackNavigation = NavigationProp<ParamListBase>;
 
 const RootNavigation = () => {
   return (
-    <ProductsProvider>
+    <CategoriesProvider>
       <RootStack.Navigator>
         <RootStack.Screen
           options={{
@@ -73,7 +77,7 @@ const RootNavigation = () => {
           component={Product}
         />
       </RootStack.Navigator>
-    </ProductsProvider>
+    </CategoriesProvider>
   );
 };
 

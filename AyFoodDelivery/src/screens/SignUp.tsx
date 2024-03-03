@@ -6,14 +6,18 @@ import PasswordInput from "../components/PasswordInput";
 import Title from "../components/Title";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParams } from "../navigation/Index";
+import { StackNavigation } from "../navigation/Index";
+import { useNavigation } from "@react-navigation/native";
 
 type Props = {
   navigation: StackNavigationProp<RootStackParams, "Categories">;
 };
 
 export default function SignUp({ navigation }: Props) {
+  const { navigate } = useNavigation<StackNavigation>();
+
   const onPressHandler = () => {
-    navigation.navigate("Categories");
+    navigate("Categories");
   };
   return (
     <View style={styles.container}>

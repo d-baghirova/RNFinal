@@ -85,7 +85,7 @@ export const CategoriesLst = [
         img: require("../images/vegetables/Cucumber.jpeg"),
       },
     ],
-  },
+  }, 
   {
     title: "Fruits",
     img: require("../images/categories/fruits.jpeg"),
